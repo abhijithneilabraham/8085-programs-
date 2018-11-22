@@ -1,0 +1,7 @@
+START:LXI H,2100H #load H register with memory address 2100
+MOV A,M #store the H reg value to accumulator
+INX H #increase the memory pointer
+ADD M #A=A+M .here we add the second number with the first
+DAA #Decimal adjust accumulator.It gives the added value in BCD.
+STA 2102H #store the value in 2102 memory address
+END:HLT
