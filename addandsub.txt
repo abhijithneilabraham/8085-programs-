@@ -1,11 +1,15 @@
-START: LXI H,2100H
-MOV A,M
-INX H
-MOV B,M
-INX H
-MOV C,M
-ADD B
-SUB C
-INX H
-MOV M,A
-END:HLT
+'''
+we have 3 numbers X Y and Z and we are gonna add X+Y and subtract that value with Z
+'''
+
+START: LXI H,2100H #initialize memory pointer in H register
+MOV A,M #move the value in memory to Accumulator(Here M stands for HL pair)
+INX H #move the memory pointer to next address
+MOV B,M #move the pointed data to B
+INX H #memory pointer to next address
+MOV C,M #move the pointed data to C register
+ADD B #gives A=A+B we are doing this for adding X and Y
+SUB C #Subtract the given value by A=A-C now we are subtracting Z from X+Y
+INX H #increase memory pointer to store the results
+MOV M,A #The accumulator data given to the memory pointer
+END:HLT #end the program
