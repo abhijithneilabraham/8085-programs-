@@ -13,3 +13,7 @@ SKIP:DCR B
 JNZ MULT #if b not zero go back to mult
 SHLD 2106H#store results
 END:HLT
+'''
+http://8085projects.info/multiply-two-eight-bit-numbers-with-shift-and-add-method.html
+refer this site for better understanding
+'''
