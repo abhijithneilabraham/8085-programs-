@@ -1,0 +1,16 @@
+START:LXI H,2100H #H reg with 2100 memory address containing lower bit of first number
+MOV A,M 
+INX H #increase memory pointer to higher bit of first number
+MOV B,M 
+INX H #memory pointer to lower bit of second number
+MOV C,M
+INX H #memory pointer to higher bit of second number
+MOV D,M 
+SUB C #subtract lower bits
+INX H #increased memory pointer to store lower order results
+MOV M,A 
+MOV A,B #Accumulator loaded with higher order of first number
+SBB D #subtraction with borrow
+INX H #increase memory pointer to store results
+MOV M,A #stored
+END:HLT
