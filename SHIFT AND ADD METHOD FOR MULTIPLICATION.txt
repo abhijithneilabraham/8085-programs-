@@ -1,0 +1,15 @@
+START: LXI H,2100H #load 
+MOV E,M #move H reg to E
+MVI D,00H #initialize D as 00
+INX H #increment memory pointer
+MOV A,M #move H reg to accumulator
+LXI H,0000H #initialize H as 0000
+MVI B,08H #initialize B as 08
+MULT: DAD H #HL=HL+HL
+RAL #rotate accumulator left
+JNC SKIP #if no carry skip to decrementing B
+DAD D  #HL+DE
+SKIP:DCR B
+JNZ MULT #if b not zero go back to mult
+SHLD 2106H#store results
+END:HLT
