@@ -1,0 +1,24 @@
+START: LXI H,2100H
+MOV B,M #divisor
+INX H
+MOV A,M #dividend
+INX H
+MVI C,00H #initialize c as 00
+CMP B 
+'''
+CMP operation
+if (A) < reg/mem: carry flag is set.
+if (A) = reg/mem:
+zero flag is set.
+if (A) > reg/mem: carry and zero flags are reset.
+
+'''
+JC LP #skip all steps if A < reg mem
+LPI: SUB B #subtract the divisor
+INR C #increment carry
+CMP B #compare B with accumulator
+JNC LPI #jump if no carry to LPI
+LP:MOV M,A #copy accumuator content to this memory location.this is the remainder
+INX H 
+MOV M,C #c is the quotient
+END:HLT
