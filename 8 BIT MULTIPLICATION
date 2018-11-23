@@ -1,0 +1,12 @@
+START: LHLD 2100H #2100 to L, 2101 to H
+       XCHG #exchange HL with DE
+       MOV C,D #the multiplier 
+       MVI D,00H #initialize D to zero
+       LXI H,0000H #initialize HL as zero
+      MUL: DAD D#HL=HL +DE .THE REPEATED ADDITION PROCESS STARTS HERE.
+      DCR C #DECREMENT COUNTER
+       JNZ MUL #LOOP UNTIL THE COUNTER BECOMES ZERO
+       SHLD 2105H STORE THE RESULT IN 2105 AND CARRY IN NEXT MEMORY ADDRESS
+       
+       
+       END:HLT
