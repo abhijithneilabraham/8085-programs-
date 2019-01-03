@@ -11,7 +11,7 @@ It has the following configuration −
 <h2>A 16-bit stack pointer</h2>
 <h2>Six 8-bit registers arranged in pairs: BC, DE, HL</h2>
 <h2>Requires +5V supply to operate at 3.2 MHZ single phase clock</h2>
-<h2>MICROPROCESSOR 8085 programs</h2>
+
 
 Detailed commenting will be given inside programs. 
 If you want to virtually simulate and wanna know what happens inside memories and flags as per you code,(useful for lab exams)
