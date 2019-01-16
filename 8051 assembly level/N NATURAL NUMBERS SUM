@@ -1,0 +1,12 @@
+MOV PSW,#00H //register bank 0 is selected (00,01,10,11 combinations of rs0 and rs1)
+MOV R0,35 H //value of n is stored in R0
+MOV R5,#55H starting location for storing natural numbers is in R5.R5 is located in the register bank 0 where R0-R7 is there.
+MOV A,#00H //accummulator stored with value 0
+MOV R7,#00H //R7 is initialized to zero to generate natural numbers.(note:0 is not a natural number)
+LOOP:INC R7 //increment r7 by 1
+     MOV @R5,07H //we cannot move values from one register to another,so we are using the address of register R7 
+     INC R5
+     ADD A,R7
+     DJNZ R0, LOOP // decrement and jump if not zero
+     MOV 36H,A //stored from acc to 36
+     END
