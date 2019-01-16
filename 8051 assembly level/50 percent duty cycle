@@ -1,0 +1,7 @@
+MOV TMOD,#01 //TIMER 0,MODE 1
+LABEL: MOV TL0,#0F2 H 
+       MOV TH0,#0FF H //the timer starts counting from this fff2 and moves up to ffff until the flag is set.
+       CPL P1.5 //toggle port 1.5
+       ACALL DELAY
+       SJMP LABEL
+       
